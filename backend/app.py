@@ -11,8 +11,11 @@ def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
 
-    CORS(app, resources={r"/api/*": {"origins": ["http://127.0.0.1:8080", "http://localhost:8080"]}})
-
+    CORS(app, resources={r"/api/*": {"origins": [
+        "http://127.0.0.1:8080",
+        "http://localhost:8080",
+        "https://sonidos-de-mi-tierra.netlify.app"
+    ]}})
     db.init_app(app)
 
     app.register_blueprint(api)
@@ -22,7 +25,7 @@ def create_app():
     @app.after_request
     def add_cors_headers(response):
         origin = request.headers.get("Origin")
-        allowed = {"http://127.0.0.1:8080", "http://localhost:8080"}
+        allowed = {"http://127.0.0.1:8080", "http://localhost:8080", "https://sonidos-de-mi-tierra.netlify.app"}
         if origin in allowed:
             response.headers["Access-Control-Allow-Origin"] = origin
             response.headers["Vary"] = "Origin"
