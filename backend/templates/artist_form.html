@@ -1,0 +1,32 @@
+{% extends "admin_base.html" %}
+{% block content %}
+<div class="card">
+  <h2>{{ "Nuevo artista" if mode=="create" else "Editar artista" }}</h2>
+  <form method="post">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token }}"/>
+
+    <label>Nombre *</label>
+    <input name="name" required value="{{ artist.name if artist else '' }}"/>
+
+    <div style="height:10px"></div>
+    <label>Época activa</label>
+    <input name="active_era" value="{{ artist.active_era if artist else '' }}" placeholder="1960s–presente"/>
+
+    <div style="height:10px"></div>
+    <label>URL foto (opcional)</label>
+    <input name="photo_url" value="{{ artist.photo_url if artist and artist.photo_url else '' }}"/>
+
+    <div style="height:10px"></div>
+    <label>Biografía</label>
+    <textarea name="bio">{{ artist.bio if artist else '' }}</textarea>
+
+    <div style="height:10px"></div>
+    <label>Aportes culturales</label>
+    <textarea name="cultural_contributions">{{ artist.cultural_contributions if artist else '' }}</textarea>
+
+    <div style="height:14px"></div>
+    <button class="btn" type="submit">{{ "Crear" if mode=="create" else "Guardar cambios" }}</button>
+    <a style="margin-left:10px" href="{{ url_for('admin.dashboard') }}">Cancelar</a>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Trivia — Sonidos de Mi Tierra</title>
+  <link rel="stylesheet" href="./styles.css"/>
+</head>
+<body>
+    <header>
+    <div class="container brand">
+        <a href="./index.html" class="logo-link">
+        <img src="assets/ui/logo.png" alt="Logo Sonidos de mi Tierra" class="main-logo">
+        </a>
+        <nav class="nav-links">
+        <a href="./index.html">Catálogo</a>
+        <a href="./trivia.html">Trivia</a>
+        </nav>
+    </div>
+    </header>
+
+  <main class="container">
+    <div style="height:30px"></div>
+    
+    <section class="reader" id="triviaCard">
+      <div class="section-title" style="margin-top:0">
+        <h2>Trivia Musical</h2>
+        <span class="badge" id="progressBadge">Pregunta 1/8</span>
+      </div>
+      
+      <div class="progress">
+          <div id="progressFill" class="progress-fill" style="width: 12%;"></div>
+      </div>
+
+      <div id="feedback" class="feedback" style="display:none;"></div>
+
+      <div class="trivia-container" style="margin-top:20px;">
+        <h3 id="questionText" style="margin-bottom:20px;"></h3>
+        <form id="optionsForm"></form>
+      </div>
+
+      <div style="display:flex; gap:12px; margin-top:30px; border-top: 1px solid var(--barro); padding-top: 20px;">
+        <button type="button" class="button" id="backBtn" style="background: var(--madera)">Atrás</button>
+        <button type="button" class="button" id="nextBtn">Siguiente</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="./trivia.js"></script>
+</body>
+</html>

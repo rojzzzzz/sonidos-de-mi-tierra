@@ -1,0 +1,12 @@
+{% extends "admin_base.html" %}
+{% block content %}
+<div class="card" style="max-width:680px;margin:18px auto;">
+  <h2>Confirmar eliminación</h2>
+  <p>Vas a eliminar {{ entity }}: <b>{{ name }}</b></p>
+  <form method="post" action="{{ action }}">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token }}"/>
+    <button class="btn" type="submit">Sí, eliminar</button>
+    <a style="margin-left:10px" href="{{ url_for('admin.dashboard') }}">Cancelar</a>
+  </form>
+</div>
+{% endblock %}

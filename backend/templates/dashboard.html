@@ -1,0 +1,58 @@
+{% extends "admin_base.html" %}
+{% block content %}
+<div class="grid">
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;">
+      <h2 style="margin:0;">Canciones</h2>
+      <div class="actions">
+        <a class="btn" href="{{ url_for('admin.song_new') }}">+ Nueva canción</a>
+      </div>
+    </div>
+    <p class="small">Últimas 50 (puedes editar/eliminar).</p>
+    <table class="table">
+      <thead>
+        <tr><th>ID</th><th>Título</th><th>Artista</th><th>Año</th><th>Acciones</th></tr>
+      </thead>
+      <tbody>
+        {% for s in songs %}
+        <tr>
+          <td>{{ s.id }}</td>
+          <td>{{ s.title }}</td>
+          <td>{{ s.artist.name }}</td>
+          <td>{{ s.year or "N/D" }}</td>
+          <td class="actions">
+            <a href="{{ url_for('admin.song_edit', song_id=s.id) }}">Editar</a>
+            <a href="{{ url_for('admin.song_delete_confirm', song_id=s.id) }}">Eliminar</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;">
+      <h2 style="margin:0;">Artistas</h2>
+      <a class="btn" href="{{ url_for('admin.artist_new') }}">+ Nuevo artista</a>
+    </div>
+    <p class="small">Gestiona perfiles (se borran en cascada sus canciones si eliminas un artista).</p>
+    <table class="table">
+      <thead>
+        <tr><th>Nombre</th><th>Época</th><th>Acciones</th></tr>
+      </thead>
+      <tbody>
+        {% for a in artists %}
+        <tr>
+          <td>{{ a.name }}</td>
+          <td>{{ a.active_era }}</td>
+          <td class="actions">
+            <a href="{{ url_for('admin.artist_edit', artist_id=a.id) }}">Editar</a>
+            <a href="{{ url_for('admin.artist_delete_confirm', artist_id=a.id) }}">Eliminar</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

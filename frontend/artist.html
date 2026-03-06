@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Sonidos de Mi Tierra — Artista</title>
+  <link rel="stylesheet" href="./styles.css"/>
+</head>
+<body data-page="artist">
+  <header>
+    <div class="container brand">
+      <a href="./index.html" class="logo-link">
+        <img src="assets/ui/logo.png" alt="Logo Sonidos de mi Tierra" class="main-logo">
+      </a>
+      <nav class="nav-links">
+        <a href="./index.html">Catálogo</a>
+        <a href="./trivia.html">Trivia</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="page-hero" style="background-image:url('assets/ui/hero-default.jpg')">
+
+    <div class="page-hero__content">
+
+    <div class="page-hero__row">
+
+    <img
+    id="artistHeroPhoto"
+    class="artist-hero-photo"
+    src="assets/ui/artist-default.png"
+    alt="Foto del artista"
+    loading="lazy"
+    />
+
+    <div class="page-hero__text">
+    <h1 class="page-hero__title" id="artistTitle"></h1>
+    <div class="page-hero__meta small" id="artistEra2"></div>
+    </div>
+
+    </div>
+    </div>
+    </section>
+    <div class="reader">
+      <p id="artistBio2"></p>
+      <p class="small" id="artistContrib2"></p>
+    </div>
+
+    <div class="section-title">
+      <h2>Canciones</h2>
+      <div class="small">Listado del catálogo asociado al artista.</div>
+    </div>
+
+    <section class="grid" id="artistSongs"></section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>

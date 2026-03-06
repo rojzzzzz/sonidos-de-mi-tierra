@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Región · Sonidos de Mi Tierra</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="icon" href="data:,">
+</head>
+<body data-page="region">
+  <header>
+    <div class="container brand">
+      <a href="./index.html" class="logo-link">
+        <img src="assets/ui/logo.png" alt="Logo Sonidos de mi Tierra" class="main-logo">
+      </a>
+      <nav class="nav-links">
+        <a href="./index.html">Catálogo</a>
+        <a href="./trivia.html">Trivia</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" id="hero">
+      <div class="hero-content"> 
+        <h1 id="regionTitle">Cargando...</h1>
+        <p id="regionMeta" class="hero-subtitle"></p>
+      </div>
+    </section>
+
+    <section class="reader">
+      <h2>Sobre esta región</h2>
+      <p id="regionDesc"></p>
+    </section>
+
+    <section class="section-title">
+      <h2>Canciones Populares</h2>
+    </section>
+    
+    <div id="regionSongs" class="grid"></div>
+
+    <div class="footer">Sonidos de mi Tierra — Proyecto Educativo</div>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>

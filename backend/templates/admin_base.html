@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>{{ title or "Admin — Sonidos de Mi Tierra" }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}"/>
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;">
+      <div style="font-weight:900">Panel Admin — Sonidos de Mi Tierra</div>
+      <div>
+        {% if session.get('admin_user') %}
+          <span class="small" style="color:rgba(255,255,255,.9);margin-right:10px;">{{ session.get('admin_user') }}</span>
+          <a style="color:#fff" href="{{ url_for('admin.dashboard') }}">Dashboard</a>
+          <span style="color:rgba(255,255,255,.7);margin:0 8px;">•</span>
+          <a style="color:#fff" href="{{ url_for('admin.logout') }}">Salir</a>
+        {% else %}
+          <a style="color:#fff" href="{{ url_for('admin.login') }}">Login</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, msg in messages %}
+          <div class="flash {{ category }}">{{ msg }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </div>
+</body>
+</html>

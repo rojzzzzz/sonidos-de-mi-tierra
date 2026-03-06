@@ -1,0 +1,576 @@
+/* ==========================================================================
+   Sonidos de Mi Tierra — UI (Historia Viva)
+   Solo CSS. Mantiene estructura existente.
+   ========================================================================== */
+
+/* Tipografías */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&family=Vidaloka&display=swap');
+
+/* ==========================================================================
+   Variables (Paleta NUEVA)
+   ========================================================================== */
+:root {
+  /* Fondos */
+  --bg-header: #F8F1E1;     /* Soft Cream (header) */
+  --bg-body: #FDF8F0;       /* Pale Ivory (body) */
+  --border-header: #D6336C; /* Vibrant Magenta (línea) */
+
+  /* Texto */
+  --text-main: #0B1A2A;     /* Midnight Blue */
+  --text-over: #FFFFFF;     /* Blanco sobre banner */
+  --text-muted: #6c757d;
+
+  /* Acentos */
+  --accent-primary: #C85B33; /* Terracota */
+  --accent-hover: #E8B85C;   /* Ámbar */
+
+  /* UI */
+  --card-bg: #FFFFFF;
+  --shadow-sm: 0 2px 8px rgba(11, 26, 42, 0.06);
+  --shadow-md: 0 10px 22px rgba(11, 26, 42, 0.10);
+  --radius: 16px;
+  --transition: 220ms ease;
+
+  /* Tipos */
+  --font-heading: 'Vidaloka', serif;
+  --font-body: 'Lato', sans-serif;
+}
+
+/* ==========================================================================
+   Reset & Base
+   ========================================================================== */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--bg-body);
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+a { color: inherit; text-decoration: none; }
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  margin: 0;
+  color: var(--text-main);
+}
+
+.small {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+
+/* Contenedor base (ya lo usas en HTML) */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ==========================================================================
+   HEADER (CLARO para legibilidad del logo)
+   ========================================================================== */
+header {
+  background: var(--bg-header);
+  border-bottom: 2px solid var(--border-header); /* línea fina magenta */
+  box-shadow: var(--shadow-sm);
+}
+
+header .brand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 12px 0;
+  min-height: 86px;
+}
+
+/* Logo: legible, estable, no gigante */
+.logo-link {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.main-logo {
+  height: 90px;
+  width: auto;
+  max-width: 250px;
+  object-fit: contain;
+  display: block;
+  transition: transform var(--transition), filter var(--transition);
+}
+
+.logo-link:hover .main-logo {
+  transform: translateY(-1px) scale(1.03);
+  filter: saturate(1.05);
+}
+
+/* Navegación */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.nav-links a {
+  font-family: var(--font-body);
+  font-weight: 700;
+  color: var(--text-main);
+  position: relative;
+  padding: 6px 2px;
+  transition: color var(--transition);
+}
+
+/* Hover ámbar + subrayado magenta sutil */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: var(--border-header);
+  transition: width var(--transition);
+}
+
+.nav-links a:hover {
+  color: var(--accent-hover);
+}
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* ==========================================================================
+   HERO / BANNER (resalte absoluto, texto blanco legible)
+   ========================================================================== */
+.hero {
+  margin: 22px 0 18px;
+  position: relative;
+  min-height: 320px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: flex-end;
+}
+
+/* Overlay suave: NO tapa arte, solo ayuda a leer */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(11, 26, 42, 0.10) 0%,
+    rgba(11, 26, 42, 0.45) 70%,
+    rgba(11, 26, 42, 0.65) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 34px;
+  color: var(--text-over);
+  max-width: 900px;
+}
+
+.hero h1 {
+  color: var(--text-over);
+  font-size: clamp(1.9rem, 3.2vw, 3rem);
+  line-height: 1.08;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.28);
+  margin-bottom: 10px;
+}
+
+.hero-subtitle {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--text-over);
+  opacity: 0.95;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.25);
+}
+
+/* ==========================================================================
+   FILTROS (Búsqueda avanzada)
+   ========================================================================== */
+.hero-filters {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(11, 26, 42, 0.10);
+  margin-top: -34px; /* levanta sobre el hero */
+  position: relative;
+  z-index: 2;
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.filters input,
+.filters select {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(11, 26, 42, 0.18);
+  background: #fff;
+  color: var(--text-main);
+  font-family: var(--font-body);
+  outline: none;
+  transition: box-shadow var(--transition), border-color var(--transition);
+}
+
+.filters input:focus,
+.filters select:focus {
+  border-color: var(--accent-hover);
+  box-shadow: 0 0 0 3px rgba(232, 184, 92, 0.28);
+}
+
+/* ==========================================================================
+   BOTONES (CTAs terracota)
+   ========================================================================== */
+.button {
+  background: var(--accent-primary);
+  color: var(--text-over);
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-weight: 800;
+  border: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition), filter var(--transition), box-shadow var(--transition);
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+  box-shadow: 0 10px 18px rgba(200, 91, 51, 0.25);
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ==========================================================================
+   SECCIONES / GRID / CARDS
+   ========================================================================== */
+.section-title {
+  margin: 26px 0 8px;
+}
+
+.section-title h2 {
+  font-size: 1.6rem;
+  color: var(--text-main);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 22px;
+  padding: 18px 0 10px;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid rgba(11, 26, 42, 0.10);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(214, 51, 108, 0.35);
+}
+
+.thumb {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.card-body { padding: 18px; }
+
+.card-title {
+  font-family: var(--font-body);
+  font-weight: 900;
+  color: var(--text-main);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.meta { color: var(--text-muted); font-size: 0.92rem; }
+
+/* Badges */
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.badge {
+  background: rgba(232, 184, 92, 0.18);
+  color: var(--text-main);
+  border: 1px solid rgba(232, 184, 92, 0.45);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.badge:hover {
+  background: rgba(214, 51, 108, 0.12);
+  border-color: rgba(214, 51, 108, 0.35);
+}
+
+/* ==========================================================================
+   READER / PÁGINAS INTERNAS
+   ========================================================================== */
+.reader {
+  background: var(--card-bg);
+  padding: 26px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(11, 26, 42, 0.10);
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1.4fr 0.6fr;
+  gap: 22px;
+}
+
+iframe {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 12px;
+  border: 1px solid rgba(11, 26, 42, 0.12);
+}
+
+/* Artista foto */
+.artist-photo {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 2px solid rgba(214, 51, 108, 0.35);
+  object-fit: cover;
+}
+
+/* ==========================================================================
+   TRIVIA
+   ========================================================================== */
+.progress {
+  height: 12px;
+  background: rgba(11, 26, 42, 0.10);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 18px 0;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-hover), var(--border-header));
+  border-radius: 10px;
+  transition: width 400ms ease;
+}
+
+.feedback {
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: 800;
+  margin: 14px 0;
+  text-align: center;
+}
+
+.feedback.ok {
+  background: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid rgba(46, 125, 50, 0.35);
+}
+
+.feedback.bad {
+  background: #ffebee;
+  color: #c62828;
+  border: 1px solid rgba(198, 40, 40, 0.35);
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.footer {
+  text-align: center;
+  padding: 36px 20px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 850px) {
+  header .brand {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .nav-links {
+    justify-content: center;
+    gap: 18px;
+  }
+
+  .main-logo {
+    height: 56px;
+    max-width: 200px;
+  }
+
+  .two-col { grid-template-columns: 1fr; }
+  .hero-content { padding: 26px; }
+}
+
+/* ==========================================================================
+   ARTIST PAGE — Mejoras (page-hero + layout)
+   No requiere cambios en HTML/JS
+   ========================================================================== */
+
+.page-hero {
+  margin: 22px 0 14px;
+  position: relative;
+  min-height: 260px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: flex-end;
+}
+
+/* Overlay similar al hero principal (legible, sin matar la ilustración) */
+.page-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(11, 26, 42, 0.10) 0%,
+    rgba(11, 26, 42, 0.42) 60%,
+    rgba(11, 26, 42, 0.68) 100%
+  );
+}
+
+.page-hero__content {
+  position: relative;
+  z-index: 1;
+  padding: 28px;
+  color: var(--text-over);
+  max-width: 900px;
+}
+
+.page-hero__title {
+  font-family: var(--font-heading);
+  color: var(--text-over);
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  line-height: 1.08;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.28);
+  margin-bottom: 8px;
+}
+
+.page-hero__meta {
+  color: var(--text-over);
+  opacity: 0.95;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.25);
+}
+
+/* Ajuste del bloque bio para que se sienta premium */
+body[data-page="artist"] .reader {
+  margin-top: 10px;
+  padding: 26px;
+}
+
+/* Títulos de sección más “editorial” */
+body[data-page="artist"] .section-title {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+body[data-page="artist"] .section-title h2 {
+  font-size: 1.7rem;
+}
+
+/* Grid: un poquito más aire y consistencia */
+body[data-page="artist"] .grid {
+  padding-top: 14px;
+}
+
+/* Responsive */
+@media (max-width: 850px) {
+  .page-hero {
+    min-height: 220px;
+  }
+  .page-hero__content {
+    padding: 22px;
+  }
+}
+
+/* ==========================================================================
+   ARTIST HERO — foto circular tipo perfil (premium)
+   ========================================================================== */
+
+.page-hero__row{
+  display: flex;
+  align-items: flex-end;
+  gap: 18px;
+}
+
+/* Foto circular flotante */
+.artist-hero-photo{
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex: 0 0 auto;
+
+  /* “marco” elegante */
+  border: 3px solid rgba(248, 241, 225, 0.95); /* crema del header */
+  box-shadow: 0 10px 22px rgba(11, 26, 42, 0.18);
+  background: #fff;
+
+  /* efecto “flotante” sobre el banner */
+  transform: translateY(18px);
+}
+
+.page-hero__text{
+  min-width: 0; /* evita overflow raro */
+}
+
+/* Ajuste para que no quede cortada la foto */
+.page-hero__content{
+  padding-bottom: 34px; /* espacio extra por el translateY */
+}

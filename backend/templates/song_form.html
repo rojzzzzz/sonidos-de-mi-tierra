@@ -1,0 +1,81 @@
+{% extends "admin_base.html" %}
+{% block content %}
+<div class="card">
+  <h2>{{ "Nueva canción" if mode=="create" else "Editar canción" }}</h2>
+  <form method="post">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token }}"/>
+
+    <div class="grid" style="grid-template-columns:1fr 1fr;">
+      <div>
+        <label>Título *</label>
+        <input name="title" required value="{{ song.title if song else '' }}"/>
+      </div>
+      <div>
+        <label>Artista *</label>
+        <select name="artist_id" required>
+          <option value="">Seleccionar</option>
+          {% for a in artists %}
+            <option value="{{ a.id }}" {% if song and song.artist_id==a.id %}selected{% endif %}>{{ a.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div>
+        <label>Año</label>
+        <input name="year" placeholder="1978" value="{{ song.year if song and song.year else '' }}"/>
+      </div>
+      <div>
+        <label>Género</label>
+        <input name="genre" value="{{ song.genre if song else '' }}" placeholder="Son Nica, Folklore..."/>
+      </div>
+
+      <div>
+        <label>Región</label>
+        <select name="region_id">
+          <option value="">(sin región)</option>
+          {% for r in regions %}
+            <option value="{{ r.id }}" {% if song and song.region_id==r.id %}selected{% endif %}>{{ r.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div>
+        <label>Duración</label>
+        <input name="duration" placeholder="mm:ss (ej 3:20) o segundos" value="{{ (song.duration_seconds if song and song.duration_seconds else '') }}"/>
+      </div>
+
+      <div>
+        <label>Portada (URL)</label>
+        <input name="cover_url" value="{{ song.cover_url if song and song.cover_url else '' }}"/>
+      </div>
+      <div>
+        <label>Enlace audio (YouTube/Spotify)</label>
+        <input name="audio_url" value="{{ song.audio_url if song and song.audio_url else '' }}"/>
+      </div>
+    </div>
+
+    <div style="height:12px"></div>
+    <label>Historia / contexto (texto largo)</label>
+    <textarea name="history_context">{{ song.history_context if song else '' }}</textarea>
+
+    <div style="height:12px"></div>
+    <label>Influencia cultural</label>
+    <textarea name="cultural_influence">{{ song.cultural_influence if song else '' }}</textarea>
+
+    <div style="height:12px"></div>
+    <label>Fuentes / referencias (texto libre)</label>
+    <textarea name="references_text">{{ song.references_text if song else '' }}</textarea>
+
+    <div style="height:12px"></div>
+    <label>Etiquetas (separadas por coma)</label>
+    <input name="tags" value="{{ tags_str if tags_str is defined else '' }}" placeholder="identidad, folklore, historia"/>
+
+    <div style="height:12px"></div>
+    <label>Fuentes estructuradas (una por línea)</label>
+    <textarea name="sources" placeholder="Título | URL | Nota">{{ sources_str if sources_str is defined else '' }}</textarea>
+
+    <div style="height:14px"></div>
+    <button class="btn" type="submit">{{ "Crear" if mode=="create" else "Guardar cambios" }}</button>
+    <a style="margin-left:10px" href="{{ url_for('admin.dashboard') }}">Cancelar</a>
+  </form>
+</div>
+{% endblock %}

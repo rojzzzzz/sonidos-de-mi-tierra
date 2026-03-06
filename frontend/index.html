@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Sonidos de Mi Tierra — Catálogo</title>
+  <link rel="stylesheet" href="./styles.css"/>
+  <link rel="icon" href="data:,">
+</head>
+<body data-page="catalog">
+  <header>
+    <div class="container brand">
+      <a href="./index.html" class="logo-link">
+        <img src="assets/ui/logo.png" alt="Logo Sonidos de mi Tierra" class="main-logo">
+      </a>
+      <nav class="nav-links">
+        <a href="./index.html">Catálogo</a>
+        <a href="./trivia.html">Trivia</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" style="background-image: url('assets/ui/banner_index.png');">
+      <div class="hero-content">
+        <h1>Sonidos de mi Tierra</h1>
+        <p class="hero-subtitle">Explora la riqueza musical e histórica de Nicaragua.</p>
+      </div>
+    </section>
+
+    <section class="hero-filters">
+      <div style="font-weight:800; font-size:1.1rem; margin-bottom:10px;">Búsqueda Avanzada</div>
+      <div class="filters">
+        <input id="q" placeholder="Palabra clave (título, artista...)"/>
+        <input id="year" placeholder="Año (ej: 1978)"/>
+        <input id="genre" placeholder="Género (ej: Son Nica)"/>
+        <select id="region">
+          <option value="">Región (todas)</option>
+        </select>
+        <select id="artist">
+          <option value="">Artista (todos)</option>
+        </select>
+        <select id="tag">
+          <option value="">Etiqueta (todas)</option>
+        </select>
+      </div>
+      <div style="margin-top:15px; display:flex; justify-content: space-between; align-items: center;">
+        <div class="small" id="totalLbl">Cargando catálogo...</div>
+        <button class="button" id="clearBtn" type="button">Limpiar Filtros</button>
+      </div>
+    </section>
+
+    <div class="section-title">
+      <h2>Explorar Galería</h2>
+    </div>
+
+    <section class="grid" id="songsGrid"></section>
+
+    <div class="footer">Hecho con orgullo en Nicaragua • 2026</div>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>

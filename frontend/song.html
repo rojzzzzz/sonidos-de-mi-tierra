@@ -1,0 +1,63 @@
+﻿<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Sonidos de Mi Tierra ” Canción</title>
+  <link rel="stylesheet" href="./styles.css"/>
+</head>
+<body data-page="song">
+  <header>
+    <div class="container brand">
+      <a href="./index.html" class="logo-link">
+        <img src="assets/ui/logo.png" alt="Logo Sonidos de mi Tierra" class="main-logo">
+      </a>
+      <nav class="nav-links">
+        <a href="./index.html">Catálogo</a>
+        <a href="./trivia.html">Trivia</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <div class="reader">
+      <h2 id="songTitle"></h2>
+      <div class="small" id="songMeta"></div>
+      <div class="badges" id="songTags"></div>
+      <div class="badges" id="songRegions"></div>
+    </div>
+
+    <div style="height:12px"></div>
+
+    <div class="two-col">
+      <div class="reader">
+        <h2>Reproductor</h2>
+        <iframe id="embed" title="Reproductor embebido" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+        <a class="button" id="audioLink" target="_blank" rel="noreferrer" style="margin-top:10px;display:inline-block;"></a>
+      </div>
+
+      <div class="reader">
+        <h2>Artista</h2>
+        <img id="artistPhoto" class="artist-photo" src="assets/ui/artist-default.png" alt="">
+        <div style="font-weight:900" id="artistName"></div>
+        <p id="artistBio" class="small"></p>
+        <p id="artistContrib" class="small"></p>
+        <a class="button" id="artistLink">Ver perfil</a>
+      </div>
+    </div>
+
+    <div style="height:12px"></div>
+
+    <div class="reader">
+      <h2>Descripción / contexto</h2>
+      <p id="contextText"></p>
+      <h2>Relacionado</h2>
+      <ul id="related"></ul>
+    </div>
+
+    <div class="footer">Viva Nicaragua!</div>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
+

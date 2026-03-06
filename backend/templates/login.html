@@ -1,0 +1,17 @@
+{% extends "admin_base.html" %}
+{% block content %}
+<div class="card" style="max-width:520px;margin:18px auto;">
+  <h2>Login</h2>
+  <p class="small">Acceso solo para administración.</p>
+  <form method="post" action="{{ url_for('admin.login_post') }}">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token }}"/>
+    <label>Usuario</label>
+    <input name="username" autocomplete="username" required/>
+    <div style="height:10px"></div>
+    <label>Contraseña</label>
+    <input name="password" type="password" autocomplete="current-password" required/>
+    <div style="height:12px"></div>
+    <button class="btn" type="submit">Entrar</button>
+  </form>
+</div>
+{% endblock %}
