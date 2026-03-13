@@ -574,3 +574,238 @@ body[data-page="artist"] .grid {
 .page-hero__content{
   padding-bottom: 34px; /* espacio extra por el translateY */
 }
+
+/* =========================================================
+   INSTRUMENTS: GALERÍA MUSEO SONORO
+   Inspirado en la visión cultural propuesta
+   ========================================================= */
+
+/* Tarjeta tipo exhibición */
+.instrument-card {
+  background: var(--card-bg);
+  border: 1px solid rgba(200, 91, 51, 0.20); /* Terracota suave */
+  border-radius: 14px;
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  transition: 
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* efecto museo al pasar el mouse */
+.instrument-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(11, 26, 42, 0.15);
+  border-color: rgba(200, 91, 51, 0.45);
+}
+
+
+/* ---------------------------------------------------------
+   Imagen del instrumento
+   --------------------------------------------------------- */
+
+.instrument-thumb {
+  height: 230px;
+  width: 100%;
+  object-fit: cover;
+
+  /* efecto artesanal */
+  filter: sepia(0.18) contrast(1.08) saturate(0.95);
+
+  transition: 
+    filter var(--transition),
+    transform var(--transition);
+}
+
+/* al hover se ve más natural */
+.instrument-card:hover .instrument-thumb {
+  filter: sepia(0) contrast(1.05);
+  transform: scale(1.03);
+}
+
+
+/* ---------------------------------------------------------
+   Título del instrumento
+   --------------------------------------------------------- */
+
+.instrument-card .card-title {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  color: var(--accent-primary);
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+
+/* ---------------------------------------------------------
+   Descripción
+   --------------------------------------------------------- */
+
+.instrument-card .meta {
+  line-height: 1.65;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+
+  margin-bottom: 14px;
+
+  display: block !important;
+  overflow: visible !important;
+  -webkit-line-clamp: none !important;
+}
+
+
+/* ---------------------------------------------------------
+   Botón escuchar
+   --------------------------------------------------------- */
+
+.instrument-btn {
+  width: 100%;
+
+  background: var(--text-main);
+  border: 2px solid transparent;
+
+  padding: 12px 16px;
+
+  font-size: 0.92rem;
+  font-weight: 700;
+
+  gap: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  margin-top: 22px !important;
+
+  transition:
+    background 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.15s ease;
+}
+
+/* hover */
+.instrument-btn:hover {
+  background: var(--accent-primary);
+  box-shadow: 0 10px 18px rgba(200, 91, 51, 0.35);
+}
+
+/* icono */
+.instrument-btn span {
+  font-size: 1.15rem;
+}
+
+
+/* ---------------------------------------------------------
+   Estado cuando el instrumento suena
+   --------------------------------------------------------- */
+
+.instrument-btn.playing {
+  background: var(--border-header);
+  animation: soundPulse 1.4s infinite;
+}
+
+
+/* animación suave */
+@keyframes soundPulse {
+
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(214, 51, 108, 0.0);
+  }
+
+  50% {
+    transform: scale(0.97);
+    box-shadow: 0 0 10px rgba(214, 51, 108, 0.35);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(214, 51, 108, 0.0);
+  }
+
+}
+
+
+/* ---------------------------------------------------------
+   Grid de instrumentos (tipo galería)
+   --------------------------------------------------------- */
+
+body[data-page="instruments"] .grid {
+  gap: 34px; /* más aire entre instrumentos */
+}
+
+
+/* ---------------------------------------------------------
+   Pequeño detalle cultural decorativo
+   (línea inferior estilo museo)
+   --------------------------------------------------------- */
+
+.instrument-card::after {
+
+  content: "";
+  height: 3px;
+  width: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(200, 91, 51, 0.5),
+    transparent
+  );
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/* =========================================================
+   CLOTHING: GALERÍA EDITORIAL
+   ========================================================= */
+
+/* Clase específica para evitar conflictos */
+.clothing-card {
+  border-bottom: 4px solid var(--accent-hover); /* Acento Ámbar en la base */
+  transition: transform var(--transition);
+}
+
+.clothing-thumb {
+  height: 300px; /* Fotos más altas para apreciar el traje completo */
+  object-position: top; /* Prioriza ver la cabeza/hombros si la foto es vertical */
+}
+
+.clothing-card .card-title {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  color: var(--accent-primary);
+  border-bottom: 1px solid rgba(200, 91, 51, 0.1);
+  padding-bottom: 8px;
+}
+
+.clothing-desc {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-main);
+  text-align: justify; /* Look más de libro/enciclopedia */
+  margin-top: 12px;
+}
+
+/* Efecto hover suave */
+.clothing-card:hover {
+  border-bottom-color: var(--border-header); /* Cambia a Magenta al pasar el mouse */
+}
+
+/* Ajuste de lectura en móvil */
+@media (max-width: 600px) {
+  .clothing-thumb {
+    height: 250px;
+  }
+}

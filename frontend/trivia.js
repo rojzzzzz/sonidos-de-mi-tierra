@@ -1,91 +1,53 @@
 const QUESTIONS = [
-{
-question: "¿Qué instrumento es característico de muchas agrupaciones de música tradicional nicaragüense?",
-options: [
-"Marimba",
-"Violín",
-"Piano",
-"Trompeta"
-],
-correctIndex: 0
-},
-
-{
-question: "¿Qué ciudad es ampliamente reconocida como cuna del folklore nicaragüense?",
-options: [
-"Granada",
-"Masaya",
-"León",
-"Estelí"
-],
-correctIndex: 1
-},
-
-{
-question: "¿Qué tipo de ritmo representa el 'Son Nica'?",
-options: [
-"Ritmo tradicional nicaragüense",
-"Género de música electrónica",
-"Estilo de rock",
-"Tipo de jazz"
-],
-correctIndex: 0
-},
-
-{
-question: "La canción 'Nicaragua, Nicaragüita' es conocida por:",
-options: [
-"Ser un himno cultural muy querido por los nicaragüenses",
-"Ser una canción infantil",
-"Ser un bolero mexicano",
-"Ser música instrumental"
-],
-correctIndex: 0
-},
-
-{
-question: "¿Qué instrumento se toca golpeando láminas de madera y es común en Centroamérica?",
-options: [
-"Marimba",
-"Guitarra",
-"Arpa",
-"Acordeón"
-],
-correctIndex: 0
-},
-
-{
-question: "Muchas canciones tradicionales nicaragüenses hablan sobre:",
-options: [
-"Historias del campo, la vida cotidiana y la identidad cultural",
-"Viajes espaciales",
-"Programación informática",
-"Carreras de autos"
-],
-correctIndex: 0
-},
-
-{
-question: "En la música tradicional, los ritmos suelen acompañar:",
-options: [
-"Danzas folklóricas",
-"Solo conciertos de piano",
-"Óperas europeas",
-"Ballet clásico ruso"
-],
-correctIndex: 0
-},
-
-{
-question: "¿Qué busca preservar una biblioteca musical como 'Sonidos de mi tierra'?",
-options: [
-"La cultura musical e identidad del país",
-"Solo música extranjera",
-"Noticias deportivas",
-"Videojuegos"
-],
-correctIndex: 0
-}
+  {
+    question: "¿A qué género musical pertenece 'El Solar de Monimbó'?",
+    options: [
+      "Polka",
+      "Mazurca",
+      "Son Nica",
+      "Vals"
+    ],
+    correctIndex: 2
+  },
+  {
+    question: "¿Qué ciudad es ampliamente reconocida como cuna del folklore nicaragüense y hogar de Monimbó?",
+    options: [
+      "Granada",
+      "León",
+      "Estelí",
+      "Masaya"
+    ],
+    correctIndex: 3
+  },
+  {
+    question: "¿Quién es el autor de esta obra maestra del folklore nicaragüense?",
+    options: [
+      "Otto de la Rocha",
+      "Camilo Zapata",
+      "Erwin Krüger",
+      "Tino López Guerra"
+    ],
+    correctIndex: 1
+  },
+  {
+    question: "'El Solar de Monimbó' es considerado el himno de...",
+    options: [
+      "Las fiestas patronales de Agosto",
+      "El son Nica",
+      "La musica coral nicaragüense"
+    ],
+    correctIndex: 1
+  },
+  {
+    question: "¿Qué instrumento es el alma de la melodía en las presentaciones de esta danza?",
+    options: [
+      "Guitarra",
+      "Marimba",
+      "Piano",
+      "Acordeón"
+    ],
+    correctIndex: 1
+  }
 ];
 
 let currentIndex = 0;
@@ -165,7 +127,7 @@ function renderResults() {
     <div class="stamp">🏅</div>
     <div>
       <div class="reward-title">Recompensa desbloqueada (demo)</div>
-      <div class="reward-sub">Un sticker digital nica para tu perfil 🎁</div>
+      <div class="reward-sub">Un nacatamal 🍴
     </div>
   </div>
 

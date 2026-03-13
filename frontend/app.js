@@ -1,4 +1,4 @@
-const API_BASE = "https://sonidos-backend.onrender.com/api";
+const API_BASE = "https://sonidos-de-mi-tierra.onrender.com/api";
 console.log("APP.JS VERSION: 2026-03-03 vNIC");
 
 function el(id){ return document.getElementById(id); }
